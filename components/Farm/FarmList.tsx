@@ -33,7 +33,7 @@ const FarmList = ({
         <ul className="flex flex-col mt-2 gap-1">
           {houses.map((ele: HouseType) => (
             <li
-              className="text-sm p-1 rounded"
+              className="text-sm p-1 rounded cursor-pointer"
               style={{
                 background: ele.active ? "#7AEA9C" : "#FF8269",
               }}
