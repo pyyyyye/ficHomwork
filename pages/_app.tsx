@@ -6,6 +6,7 @@ import { RecoilRoot } from "recoil";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
+      <div id="_modal"></div>
       <Component {...pageProps} />
     </RecoilRoot>
   );

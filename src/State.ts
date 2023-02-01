@@ -1,9 +1,9 @@
 import { atom } from "recoil";
 export interface ILoginType {
   id: string;
-  pw: string;
+  name: string;
 }
 export const LoginState = atom<ILoginType>({
   key: "userInfoState",
-  default: { id: "", pw: "" },
+  default: { id: "", name: "" },
 });

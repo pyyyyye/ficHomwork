@@ -6,17 +6,17 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { LoginState, ILoginType } from "@src/State";
 
 const Login = () => {
-  const setUserName = useSetRecoilState<ILoginType>(LoginState);
+  const setUserInfo = useSetRecoilState<ILoginType>(LoginState);
   const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
+  const [name, setName] = useState("");
   const queryClient = new QueryClient();
   const router = useRouter();
 
-  const onClick = ({ id, pw }: { id: string; pw: string }) => {
-    if (id === "" || pw === "") {
-      alert("아이디 또는 비밀번호를 확인하세요.");
+  const onClick = ({ id, name }: { id: string; name: string }) => {
+    if (id === "" || name === "") {
+      alert("아이디 또는 이름을 확인하세요.");
     } else {
-      setUserName({ id, pw });
+      setUserInfo({ id, name });
       router.push("home");
     }
   };
@@ -37,15 +37,15 @@ const Login = () => {
               value={id}
             />
             <Input
-              type="password"
-              name="pw"
-              placeholder="비밀번호를 입력하세요"
+              type="texet"
+              name="name"
+              placeholder="이름을 입력하세요"
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setPw(e.target.value)
+                setName(e.target.value)
               }
-              value={pw}
+              value={name}
             />
-            <Button onClick={() => onClick({ id, pw })}>로그인</Button>
+            <Button onClick={() => onClick({ id, name })}>로그인</Button>
           </div>
         </ScreenWrap>
       </Container>
