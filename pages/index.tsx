@@ -9,12 +9,13 @@ const Login = () => {
   const setUserInfo = useSetRecoilState<ILoginType>(LoginState);
   const [id, setId] = useState("");
   const [name, setName] = useState("");
+  const [check, setCheck] = useState(false);
   const queryClient = new QueryClient();
   const router = useRouter();
 
   const onClick = ({ id, name }: { id: string; name: string }) => {
     if (id === "" || name === "") {
-      alert("아이디 또는 이름을 확인하세요.");
+      setCheck(true);
     } else {
       setUserInfo({ id, name });
       router.push("home");
@@ -45,6 +46,11 @@ const Login = () => {
               }
               value={name}
             />
+            {check && (
+              <span className="text-red-500 text-xs">
+                * 빈 칸을 모두 입력하세요.
+              </span>
+            )}
             <Button onClick={() => onClick({ id, name })}>로그인</Button>
           </div>
         </ScreenWrap>
